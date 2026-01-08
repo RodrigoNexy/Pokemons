@@ -161,8 +161,8 @@ export function PokemonSelector({ onSelect, selectedPokemon, label, disabled = f
                             </div>
                         ) : (
                             <div className="space-y-4">
-                                <div className="flex gap-2">
-                                    <div className="flex-1 relative">
+                                <div className="flex flex-col md:flex-row gap-2">
+                                    <div className="w-full md:flex-1 relative">
                                         <input
                                             type="text"
                                             value={searchTerm}
@@ -173,24 +173,28 @@ export function PokemonSelector({ onSelect, selectedPokemon, label, disabled = f
                                             disabled={disabled || isSearching}
                                         />
                                     </div>
-                                    <Button
-                                        onClick={handleSearch}
-                                        disabled={disabled || isSearching}
-                                        variant="primary"
-                                    >
-                                        <Search className="w-4 h-4" />
-                                    </Button>
-                                    <Button
-                                        onClick={() => {
-                                            setShowSearch(false)
-                                            setSearchTerm('')
-                                            setSearchResults([])
-                                        }}
-                                        disabled={disabled}
-                                        variant="ghost"
-                                    >
-                                        Cancelar
-                                    </Button>
+                                    <div className="flex gap-2 md:flex-initial">
+                                        <Button
+                                            onClick={handleSearch}
+                                            disabled={disabled || isSearching}
+                                            variant="primary"
+                                            className="flex-1 md:flex-initial flex justify-center items-center"
+                                        >
+                                            <Search className="w-4 h-4" />
+                                        </Button>
+                                        <Button
+                                            onClick={() => {
+                                                setShowSearch(false)
+                                                setSearchTerm('')
+                                                setSearchResults([])
+                                            }}
+                                            disabled={disabled}
+                                            variant="ghost"
+                                            className="flex-1 md:flex-initial"
+                                        >
+                                            Cancelar
+                                        </Button>
+                                    </div>
                                 </div>
 
                                 {isSearching && (
