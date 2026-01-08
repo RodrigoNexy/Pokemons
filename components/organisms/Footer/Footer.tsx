@@ -30,7 +30,7 @@ export function Footer() {
 
                 <div className="mt-8 text-center border-t border-white/20 pt-4">
                     <p className="font-mono text-xs text-white/80">
-                        © 2024 POKÉDEX INTERATIVA
+                        Vai dar tudo certo!
                     </p>
                 </div>
             </div>
