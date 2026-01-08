@@ -51,7 +51,7 @@ export class PokemonServiceImpl implements PokemonService {
     return {
       id: data.id,
       name: data.name,
-      image: data.sprites.other['official-artwork'].front_default || data.sprites.front_default,
+      image: data.sprites.other?.['official-artwork']?.front_default || data.sprites.front_default,
       types: data.types.map((t: any) => t.type.name),
       abilities: data.abilities.map((a: any) => a.ability.name),
       stats: {
@@ -101,7 +101,7 @@ export class PokemonServiceImpl implements PokemonService {
             id: pokemonData.id,
             name: pokemonData.name,
             image:
-              pokemonData.sprites.other['official-artwork'].front_default ||
+              pokemonData.sprites.other?.['official-artwork']?.front_default ||
               pokemonData.sprites.front_default,
             types: pokemonData.types.map((t: any) => t.type.name),
           }
@@ -139,7 +139,7 @@ export class PokemonServiceImpl implements PokemonService {
             id: pokemonData.id,
             name: pokemonData.name,
             image:
-              pokemonData.sprites.other['official-artwork'].front_default ||
+              pokemonData.sprites.other?.['official-artwork']?.front_default ||
               pokemonData.sprites.front_default,
             types: pokemonData.types.map((t: any) => t.type.name),
           }
