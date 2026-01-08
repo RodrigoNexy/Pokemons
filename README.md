@@ -391,15 +391,6 @@ O projeto segue uma **Arquitetura em Camadas** com separação clara de responsa
 - ✅ **HTTPS** em produção
 - ✅ **Variáveis de ambiente** para secrets
 
-### Variáveis de Ambiente no Fly.io
-
-Configure as variáveis de ambiente no dashboard do Fly.io ou via CLI:
-
-```bash
-fly secrets set DATABASE_URL="sua-url-do-banco"
-fly secrets set JWT_SECRET="sua-chave-secreta"
-fly secrets set NEXT_PUBLIC_API_URL="https://seu-app.fly.dev"
-```
 ## 📄 Sobre o Projeto
 
 Este projeto foi desenvolvido como **teste técnico para entrevista**, demonstrando:
