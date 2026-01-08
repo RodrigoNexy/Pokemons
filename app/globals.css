@@ -9,7 +9,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 50%, #fca5a5 100%);
+  background: #dddfde;
   font-family: 'Courier New', monospace;
   min-height: 100vh;
 }
