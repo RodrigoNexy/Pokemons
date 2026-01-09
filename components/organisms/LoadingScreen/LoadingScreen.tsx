@@ -26,7 +26,6 @@ export function LoadingScreen({ message = 'Carregando...', pokemonId }: LoadingS
                   width={120}
                   height={120}
                   className="object-contain drop-shadow-lg"
-                  unoptimized
                 />
               </div>
             </div>

@@ -105,16 +105,6 @@ function calculateDamage(
 }
 
 export function BattleArena({ pokemon1, pokemon2, onReset }: BattleArenaProps) {
-    if (!pokemon1 || !pokemon2 || !pokemon1.name || !pokemon2.name) {
-        return (
-            <div className="text-center py-12">
-                <p className="font-mono text-lg text-gray-800">
-                    Erro: Dados dos Pokémons incompletos
-                </p>
-            </div>
-        )
-    }
-
     const [typeEffectivenessMap, setTypeEffectivenessMap] = useState<TypeEffectiveness>({})
     const [isLoadingTypes, setIsLoadingTypes] = useState(true)
 
@@ -125,8 +115,8 @@ export function BattleArena({ pokemon1, pokemon2, onReset }: BattleArenaProps) {
         winner: Pokemon | null
         logs: BattleLog[]
     }>({
-        hp1: pokemon1.stats?.hp || 100,
-        hp2: pokemon2.stats?.hp || 100,
+        hp1: pokemon1?.stats?.hp || 100,
+        hp2: pokemon2?.stats?.hp || 100,
         turn: 0,
         winner: null,
         logs: [],
@@ -135,6 +125,8 @@ export function BattleArena({ pokemon1, pokemon2, onReset }: BattleArenaProps) {
     const [isAnimating, setIsAnimating] = useState(false)
 
     useEffect(() => {
+        if (!pokemon1 || !pokemon2 || !pokemon1.types || !pokemon2.types) return
+
         const loadTypeEffectiveness = async () => {
             setIsLoadingTypes(true)
             try {
@@ -149,7 +141,17 @@ export function BattleArena({ pokemon1, pokemon2, onReset }: BattleArenaProps) {
         }
 
         loadTypeEffectiveness()
-    }, [pokemon1.types, pokemon2.types])
+    }, [pokemon1?.types, pokemon2?.types])
+
+    if (!pokemon1 || !pokemon2 || !pokemon1.name || !pokemon2.name) {
+        return (
+            <div className="text-center py-12">
+                <p className="font-mono text-lg text-gray-800">
+                    Erro: Dados dos Pokémons incompletos
+                </p>
+            </div>
+        )
+    }
 
     const handleAttack = (attacker: Pokemon, defender: Pokemon, isFirstAttack: boolean = false) => {
         if (isAnimating || battleState.winner || isLoadingTypes) return
